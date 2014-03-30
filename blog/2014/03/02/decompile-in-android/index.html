@@ -1,0 +1,334 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Android反编译入门与反编译防范 - 南京邮电大学移动互联网俱乐部</title>
+  <meta name="author" content="MMClub">
+
+  
+  <meta name="description" content="作者: 林翔宇 反编译Java代码 参考http://www.oschina.net/question/54100_33457 文中给出下载链接版本较老，其中dex2jar可能会出现java.lang.OutOfMemoryError的异常。请去官网下载两个工具的最新版。 https://code &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mmclub.github.io/blog/2014/03/02/decompile-in-android">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="南京邮电大学移动互联网俱乐部" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-47454479-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">南京邮电大学移动互联网俱乐部</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mmclub.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Android反编译入门与反编译防范</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-02T22:04:22+08:00" pubdate data-updated="true">Mar 2<span>nd</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>作者: 林翔宇</p>
+
+<h2>反编译Java代码</h2>
+
+<p>参考<a href="http://www.oschina.net/question/54100_33457">http://www.oschina.net/question/54100_33457</a></p>
+
+<p>文中给出下载链接版本较老，其中dex2jar可能会出现java.lang.OutOfMemoryError的异常。请去官网下载两个工具的最新版。</p>
+
+<ul>
+<li><a href="https://code.google.com/p/dex2jar/">https://code.google.com/p/dex2jar/</a></li>
+<li><a href="http://java.decompiler.free.fr/?q=jdgui">http://java.decompiler.free.fr/?q=jdgui</a></li>
+</ul>
+
+
+<p>简单来说，用dex2jar把apk文件解压得到的classes.dex转化为jar文件，然后用JD-GUI打开这个Jar文件，查看源码。</p>
+
+<h2>反编译apk生成程序的源代码和图片、XML配置、语言资源等文件</h2>
+
+<p>同样参考<a href="http://www.oschina.net/question/54100_33457">http://www.oschina.net/question/54100_33457</a></p>
+
+<p>使用apktool <a href="https://code.google.com/p/android-apktool/">https://code.google.com/p/android-apktool/</a></p>
+
+<h2>混淆代码防范反编译</h2>
+
+<p>参考 <a href="http://blog.csdn.net/sunboy_2050/article/details/6727640">http://blog.csdn.net/sunboy_2050/article/details/6727640</a></p>
+
+<p><em>2014.3.4更新，感谢俱乐部苏东生同学在评论区提醒</em></p>
+
+<p>新版的SDK在创建工程目录的时候已经提供了默认的模板，将project.properties的中“# proguard.config=${sdk.dir}/tools/proguard/proguard-android.txt:proguard-project.txt”的“#”去掉，再做一些定制就可以了。可以参考</p>
+
+<p><a href="http://blog.csdn.net/brokge/article/details/8989312">http://blog.csdn.net/brokge/article/details/8989312</a></p>
+
+<p><del>修改Android项目下default.properties文件，加上一句proguard.config=proguard.cfg。</del></p>
+
+<p><del>当然同时目录下要有proguard.cfg文件，可以在android_sdk_path/tools/proguard/目录下找</del></p>
+
+<p><del>其实似乎现在Android默认创建工程的时候就已经有了。。看一下default.properties注释就可以了。。。</del></p>
+
+<p><em>注意</em></p>
+
+<p>参考<a href="http://my.oschina.net/banxi/blog/55622">http://my.oschina.net/banxi/blog/55622</a></p>
+
+<ul>
+<li>当使用了除了android-support-v4这些API的时候，要添加相对应的声明</li>
+<li>可以让proguard帮我们忽略Log.d()这些语句</li>
+</ul>
+
+
+<h2>其他参考资料</h2>
+
+<ul>
+<li><a href="http://www.google.co.uk/search?hl=zh-CN&amp;newwindow=1&amp;site=&amp;source=hp&amp;q=Android++decomplier&amp;btnG=Google+%E6%90%9C%E7%B4%A2">Google搜索Android  decomplier</a></li>
+<li><a href="http://stackoverflow.com/questions/1249973/decompiling-dex-into-java-sourcecode">StackOverFlow decompiling DEX into Java sourcecode</a></li>
+</ul>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">MMClub</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-02T22:04:22+08:00" pubdate data-updated="true">Mar 2<span>nd</span>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/android/'>Android</a>, <a class='category' href='/blog/categories/lin-xiang-yu/'>林翔宇</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://mmclub.github.io/blog/2014/03/02/decompile-in-android/" data-via="" data-counturl="http://mmclub.github.io/blog/2014/03/02/decompile-in-android/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/03/02/android-test-1/" title="Previous Post: Android测试入门(一) Activity测试简介">&laquo; Android测试入门(一) Activity测试简介</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/03/03/puma-a-ruby-web-server-for-concurrent/" title="Next Post: Puma: 一个为并发构建的Ruby服务器">Puma: 一个为并发构建的Ruby服务器 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/03/30/think-of-sohu-competition/">参加搜狐比赛有感</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/30/install-ruby-on-rails-on-centos/">How to Install Ruby on Rails on CentOS 6.5 Using Rbenv</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/03/puma-a-ruby-web-server-for-concurrent/">Puma: 一个为并发构建的Ruby服务器</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/02/decompile-in-android/">Android反编译入门与反编译防范</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/02/android-test-1/">Android测试入门(一) Activity测试简介</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/mmclub">@mmclub</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'mmclub',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - MMClub -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'mmclub-blog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://mmclub.github.io/blog/2014/03/02/decompile-in-android/';
+        var disqus_url = 'http://mmclub.github.io/blog/2014/03/02/decompile-in-android/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

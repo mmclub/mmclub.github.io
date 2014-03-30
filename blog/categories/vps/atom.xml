@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: VPS | 南京邮电大学移动互联网俱乐部]]></title>
+  <link href="http://mmclub.github.io/blog/categories/vps/atom.xml" rel="self"/>
+  <link href="http://mmclub.github.io/"/>
+  <updated>2014-03-30T16:51:10+08:00</updated>
+  <id>http://mmclub.github.io/</id>
+  <author>
+    <name><![CDATA[MMClub]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[How to Install Ruby on Rails on CentOS 6.5 Using Rbenv]]></title>
+    <link href="http://mmclub.github.io/blog/2014/03/30/install-ruby-on-rails-on-centos/"/>
+    <updated>2014-03-30T11:11:37+08:00</updated>
+    <id>http://mmclub.github.io/blog/2014/03/30/install-ruby-on-rails-on-centos</id>
+    <content type="html"><![CDATA[<h2>Introduction</h2>
+
+<h3>Ruby on Rails</h3>
+
+<p>Ruby on Rails is one of the most popular web development framework, it&rsquo;s build upon  Ruby Programming Language, and it&rsquo;s the hottest web development stack currently.</p>
+
+<h3>Rbenv</h3>
+
+<p><a href="https://github.com/sstephenson/rbenv">Rbenv</a> is a shell script tools created by <a href="http://sstephenson.us/">Sam Stephenson</a>. It&rsquo;s used for groom your app’s Ruby environment.Use rbenv can pick a Ruby version for your application and guarantee that your development environment matches production.</p>
+
+<p>rbenv works by inserting a directory of shims at the front of your PATH:</p>
+
+<pre><code> ~/.rbenv/shims:/usr/local/bin:/usr/bin:/bin
+</code></pre>
+
+<p>Through a process called rehashing, rbenv maintains shims in that directory to match every Ruby command across every installed version of Ruby—irb, gem, rake, rails, ruby, and so on.</p>
+
+<h3>CentOS</h3>
+
+<p>CentOS is derived from  Red Hat Enterprise Linux. The target users of these distributions are usually businesses, which require their systems to be running the most stable way for a long time.So we are going to use  CentOS 6.5 running our applications.</p>
+
+<h2>Step One &ndash; Install dependencies</h2>
+
+<p>Before, installing any package, it&rsquo;s always recommended to update package repository cache use yum.</p>
+
+<pre><code> sudo yum update
+</code></pre>
+
+<p>Now,in order to get necessary development tools and dependencies, run the following:</p>
+
+<pre><code> sudo yum groupinstall -y 'development tools'
+ sudo yum install -y gcc-c++ glibc-headers openssl-devel readline libyaml-devel readline-devel zlib zlib-devel  sqlite-devel  
+</code></pre>
+
+<h2>Step Two &ndash; Install Rbenv and ruby-build</h2>
+
+<p>Then we are ready to get Rbenv downloaded installed, run the following to check out rbenv into ~/.rbenv:</p>
+
+<pre><code> git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
+</code></pre>
+
+<p>Add ~/.rbenv/bin to your $PATH for access to the rbenv command-line utility:</p>
+
+<pre><code> echo 'export PATH="$HOME/.rbenv/bin:$PATH"' &gt;&gt; ~/.bash_profile
+</code></pre>
+
+<p>Add rbenv init to your shell to enable rbenv shims and autocompletion.</p>
+
+<pre><code> echo 'eval "$(rbenv init -)"' &gt;&gt; ~/.bash_profile
+</code></pre>
+
+<p>Ruby-build is a Rbenv plugin which provides the rbenv install command that simplifies the process of installing new Ruby versions. Install rbenv-build:</p>
+
+<pre><code> git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+</code></pre>
+
+<p>reloaded your bash_profile to enable rbenv command:</p>
+
+<pre><code> source ~/.bash_profile
+</code></pre>
+
+<h2>Step Three &ndash; Install Ruby</h2>
+
+<p>Install Ruby 2.1.0 and make it the default</p>
+
+<pre><code> rbenv install 2.1.0
+ rbenv rehash
+ rbenv global 2.1.0
+</code></pre>
+
+<p>Now you can run:</p>
+
+<pre><code> ruby -v
+</code></pre>
+
+<p>to verify your ruby environment has been installed successful。 It will output something like this:</p>
+
+<pre><code> ruby 2.1.0p0 (2013-12-25 revision 44422) [x86_64-linux]
+</code></pre>
+
+<h2>Step Four &ndash; Install Nodejs</h2>
+
+<p>Ruby on Rails need a JavaScript runtime support. It use <a href="https://github.com/sstephenson/execjs">execjs</a> gem which can automatically picks the best runtime available to evaluate your JavaScript program, then returns the result to you as a Ruby object.</p>
+
+<p>ExecJS supports these runtimes:</p>
+
+<ul>
+<li>therubyracer &ndash; Google V8 embedded within Ruby</li>
+<li>therubyrhino &ndash; Mozilla Rhino embedded within JRuby</li>
+<li>Node.js</li>
+<li>Apple JavaScriptCore &ndash; Included with Mac OS X</li>
+<li>Microsoft Windows Script Host (JScript)</li>
+</ul>
+
+
+<p>So we can use therubyracer gem or  Node.js in with our CentOS and MRI Ruby. In this guide we use <a href="http://nodejs.org/">Nodejs</a> as JavaScript runtime.</p>
+
+<p>Node.js is available from the <a href="https://fedoraproject.org/wiki/EPEL">Fedora Extra Packages for Enterprise Linux (EPEL)</a> repository.</p>
+
+<p>Extra Packages for Enterprise Linux (or EPEL) is a Fedora Special Interest Group that creates, maintains, and manages a high quality set of additional packages for Enterprise Linux, including, but not limited to, Red Hat Enterprise Linux (RHEL), CentOS and Scientific Linux (SL), Oracle Enterprise Linux(OEL).</p>
+
+<p>To check if you have EPEL, run</p>
+
+<pre><code> yum repolist
+</code></pre>
+
+<p>if you don&rsquo;t see epel, install it via RPM</p>
+
+<pre><code> rpm -Uvh http://download-i2.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
+</code></pre>
+
+<p>And then run the following command to install node:</p>
+
+<pre><code> sudo yum install nodejs --enablerepo=epel
+</code></pre>
+
+<h2>Step Four &ndash; Install Rails Gem and test it.</h2>
+
+<p> Rails 4.0 needs RubyGems 2.0.3, so you have to update your system by using following command</p>
+
+<pre><code> gem update --system 2.0.3
+</code></pre>
+
+<p>Now, you can install the rails gem</p>
+
+<pre><code> gem install rails
+ rbenv rehash
+</code></pre>
+
+<p>Test your rails:</p>
+
+<pre><code> rails new projectname
+ cd projectname
+ rails server
+</code></pre>
+
+<p>now open your browser and open <a href="http://your-server-ip:3000,you">http://your-server-ip:3000,you</a> can find the rails project default page.</p>
+]]></content>
+  </entry>
+  
+</feed>

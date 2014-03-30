@@ -1,0 +1,323 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>马上码代码 - 南京邮电大学移动互联网俱乐部</title>
+  <meta name="author" content="MMClub">
+
+  
+  <meta name="description" content="作者 ClownQiang 第一次为俱乐部写一篇博客，关于技术上面确实懂得太少，说的太多可能会使大家误入歧途，不过oa414将这个任务交给了我，我还是得认真完成。下面就我来移动MM俱乐部的半年里的感受与体会与大家讲讲，对于我这种低端水平的人怎么去写一个android应用。 刚进俱乐部， &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mmclub.github.io/blog/2014/02/25/code-right-now">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="南京邮电大学移动互联网俱乐部" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-47454479-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">南京邮电大学移动互联网俱乐部</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mmclub.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">马上码代码</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-25T10:52:41+08:00" pubdate data-updated="true">Feb 25<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><ul>
+<li>作者 <a href="https://github.com/1019439568">ClownQiang</a></li>
+</ul>
+
+
+<p>第一次为俱乐部写一篇博客，关于技术上面确实懂得太少，说的太多可能会使大家误入歧途，不过<a href="https://github.com/oa414">oa414</a>将这个任务交给了我，我还是得认真完成。下面就我来移动MM俱乐部的半年里的感受与体会与大家讲讲，对于我这种低端水平的人怎么去写一个android应用。</p>
+
+<p>刚进俱乐部，就碰上了google大学生开发大赛，这个对于我来说是比较正式的参加校外比赛，虽然技术不怎么样，但是屌丝都有一个高富帅的心，同为屌丝的涛哥和我一起组成了一队。刚好那时看到一个计时类应用，是利用手指的滑动进行时间的记入，很有创意。所以就萌生了开发TimeNote的想法，但是开发的决定过程是很漫长，因为不知道手指滑动记入时间到底怎么实现的，我们陷入一种怪圈子：</p>
+
+<p>他说：“小强，这个太复杂了，感觉实现有点困难，要不我们换成其他计时。”</p>
+
+<p>我说：“我们的这个应用的新意就在这儿。。”</p>
+
+<p>他说：“怎么实现”</p>
+
+<p>我说：“balabalabala。。。”</p>
+
+<p>他说：“balabalabala。。。”</p>
+
+<p>。。。。</p>
+
+<p>然后还是没有结果，同样的现象还发生在后来校科技节中的android开发比赛，为了开发一些比较具有玩乐价值的应用，当时有这样两个选择：<a href="http://as.baidu.com/a/item?docid=5078477">真心话大冒险</a>与谁是卧底, 因为真心话大冒险是我与学姐胡雪茜开发的，所以就以这个为例子。按照惯例，开发之前又是一阵头脑风暴，在学姐“美好”的畅想中，我们的应用<a href="http://as.baidu.com/a/item?docid=5078477">真心话大冒险</a>具有了很多炫的功能，不仅有微信摇一摇功能，还有酷比的阴影旋转效果，但是对于我这种战5水平完全无法实现，“摇一摇”勉强可以实现，但是阴影对于我来说就太什么了点，为了有个好的规划，又开始了激烈的讨论，一个晚上过去了，她的UI界面没出来，我的<a href="http://zh.wikipedia.org/wiki/GitHub">github</a>仓库都没建立。</p>
+
+<p>上面举了两个例子无非是想告诉大家，说的再多也抵不过动手去做，规划固然重要，但是如果拿着规划的幌子去正大光明的浪费时间就只能”呵呵“了。当你要去开发一个软件时，能做的事情很多，而不是用嘴巴去写代码，如果你还是那个开口就是要开发<a href="http://zh.wikipedia.org/wiki/%E5%A4%A7%E5%9E%8B%E5%A4%9A%E4%BA%BA%E5%9C%A8%E7%BA%BF%E8%A7%92%E8%89%B2%E6%89%AE%E6%BC%94%E6%B8%B8%E6%88%8F">MMORPG</a>，或者开发Whatsapp大赚190亿美元，但是又不怎么去做实际事情，那我必须再打击一下你。</p>
+
+<p>曾经有认识的同学有个App想法，基本“万事具备，只欠开发”，不过开发这样的App难度并不低，实现一个完整的IM只是其中一个子功能。在中国这个十几亿的大国，这样或者那样想法每天都不缺，所以如果想以一个想法达到那样的高度是不太合适的。如果你是一个程序员，就应该认真的去看看计算机方面的书;如果你是一个UI设计师，那么就学会用各种可视化布局工具，如：<a href="http://www.bootcss.com/p/layoutit/">LayoutIt</a>，<a href="http://www.bootcss.com/p/bootstrap-wysiwyg/">bootstrap-wysiwyg</a>等等，而不是会做几张图片就谈什么深入群众，“步子太大，小心扯淡”。</p>
+
+<p>今天说的东西不多，作为开学的Blog我表示责任重大，所以在新的学期不要用调戏妹子的言语勾搭计算机，它不吃这一套，所以在你真的想学的时候多去干点实实在在的事情，让自己充实。</p>
+
+<p>那些想学游戏的，马上看看游戏方面的书，以及自己动手开发小的游戏。。。。。。。</p>
+
+<p>那些想学IOS的，马上找找翔宇“学长”。。。。。。。</p>
+
+<p>那些想学UI，马上储备能用实际技能，注意你不是PS怪。。。。。。。。。。。</p>
+
+<p>那些正在扯淡的，马上码代码吧。。。。。。。。。</p>
+
+<h3>最后附上我的一些开源的App作品在Github上的链接：</h3>
+
+<ul>
+<li><a href="https://github.com/1019439568/TimeNote">TimeNote</a></li>
+<li><a href="https://github.com/1019439568/Truth-or-Dare">真心话大冒险</a></li>
+</ul>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">MMClub</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-25T10:52:41+08:00" pubdate data-updated="true">Feb 25<span>th</span>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/xin-de/'>心得</a>, <a class='category' href='/blog/categories/dai-zhi-qiang/'>戴志强</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://mmclub.github.io/blog/2014/02/25/code-right-now/" data-via="" data-counturl="http://mmclub.github.io/blog/2014/02/25/code-right-now/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/02/24/talk-about-mobilephone-hardware/" title="Previous Post: 智能手机硬件分析及近期热门智能手机推荐">&laquo; 智能手机硬件分析及近期热门智能手机推荐</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/03/02/internet-and-hardware/" title="Next Post: 互联网引发的硬件革命">互联网引发的硬件革命 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/03/30/think-of-sohu-competition/">参加搜狐比赛有感</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/30/install-ruby-on-rails-on-centos/">How to Install Ruby on Rails on CentOS 6.5 Using Rbenv</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/03/puma-a-ruby-web-server-for-concurrent/">Puma: 一个为并发构建的Ruby服务器</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/02/decompile-in-android/">Android反编译入门与反编译防范</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/02/android-test-1/">Android测试入门(一) Activity测试简介</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/mmclub">@mmclub</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'mmclub',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - MMClub -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'mmclub-blog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://mmclub.github.io/blog/2014/02/25/code-right-now/';
+        var disqus_url = 'http://mmclub.github.io/blog/2014/02/25/code-right-now/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

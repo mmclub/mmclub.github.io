@@ -1,110 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
 
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <title>南京邮电大学移动互联网俱乐部</title>
-  <meta name="author" content="MMClub">
-
-  
-  <meta name="description" content="作者：苏东生 去年的11月，搜狐公司举办了2014“比武招新”比赛，比赛主要分三个环节：“夺”宝典、“闯”奇关、“攻”擂台，最终优胜者将获得现金大奖和实习offer的奖励。上个学期我和两个老乡一起参加了比赛并且最后拿到了比赛的一等奖，我们自己都有些预想不到，本来只是抱着尝试的态度参加比赛而已。好吧 &hellip;">
-  
-
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  
-  <link rel="canonical" href="http://mmclub.github.io">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="南京邮电大学移动互联网俱乐部" type="application/atom+xml">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
-  
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-47454479-1']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-
-
-</head>
-
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">南京邮电大学移动互联网俱乐部</a></h1>
-  
-</hgroup>
-
-</header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="http://google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:mmclub.github.io" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
-</ul>
-
-</nav>
-  <div id="main">
-    <div id="content">
-      <div class="blog-index">
-  
-  
-  
-    <article>
-      
-  <header>
+  <title><![CDATA[南京邮电大学移动互联网俱乐部]]></title>
+  <link href="http://mmclub.github.io/atom.xml" rel="self"/>
+  <link href="http://mmclub.github.io/"/>
+  <updated>2014-03-30T16:51:10+08:00</updated>
+  <id>http://mmclub.github.io/</id>
+  <author>
+    <name><![CDATA[MMClub]]></name>
     
-      <h1 class="entry-title"><a href="/blog/2014/03/30/think-of-sohu-competition/">参加搜狐比赛有感</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
 
   
-
-
-<time datetime="2014-03-30T11:12:39+08:00" pubdate data-updated="true">Mar 30<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>作者：苏东生</p>
+  <entry>
+    <title type="html"><![CDATA[参加搜狐比赛有感]]></title>
+    <link href="http://mmclub.github.io/blog/2014/03/30/think-of-sohu-competition/"/>
+    <updated>2014-03-30T11:12:39+08:00</updated>
+    <id>http://mmclub.github.io/blog/2014/03/30/think-of-sohu-competition</id>
+    <content type="html"><![CDATA[<p>作者：苏东生</p>
 
 <p>去年的11月，搜狐公司举办了2014“比武招新”比赛，比赛主要分三个环节：“夺”宝典、“闯”奇关、“攻”擂台，最终优胜者将获得现金大奖和实习offer的奖励。上个学期我和两个老乡一起参加了比赛并且最后拿到了比赛的一等奖，我们自己都有些预想不到，本来只是抱着尝试的态度参加比赛而已。好吧，长话短说，现在跟大家分享一下我参加这次比赛的一些经验和收获吧。</p>
 
@@ -119,42 +33,15 @@
 <p>回想一下这次的比赛，之所以能拿到一等奖，最后经理也点评了，我们在提出任何一个观点的时候，都下足了功夫，做足了功课，并不会说就只是一个口头上的想象而已。正所谓知己知彼，百战百胜。我们有一个观点是增加一个本地新闻栏目，正好经理说在下一个版本里已经加入这个模块了，加上我们有他们其他三个队伍没有的东西，那就是调查问卷，所以就显得更有说服力了。（虽然这更多只是一种形式上的东西，毕竟我们的调查问卷基本都是针对学生，而且有挺多人都是随便写的，很有局限性）但对于比赛来说，这就是经理看中的地方，也是我们最终胜出的一个地方。</p>
 
 <p>所以，做什么事情都不要只是想想或者是口头上说说而已，更多的是要你的实际行动，需要你做足准备，知己知彼，才能百战百胜。</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/03/30/install-ruby-on-rails-on-centos/">How to Install Ruby on Rails on CentOS 6.5 Using Rbenv</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-03-30T11:11:37+08:00" pubdate data-updated="true">Mar 30<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>Introduction</h2>
+  <entry>
+    <title type="html"><![CDATA[How to Install Ruby on Rails on CentOS 6.5 Using Rbenv]]></title>
+    <link href="http://mmclub.github.io/blog/2014/03/30/install-ruby-on-rails-on-centos/"/>
+    <updated>2014-03-30T11:11:37+08:00</updated>
+    <id>http://mmclub.github.io/blog/2014/03/30/install-ruby-on-rails-on-centos</id>
+    <content type="html"><![CDATA[<h2>Introduction</h2>
 
 <h3>Ruby on Rails</h3>
 
@@ -291,42 +178,15 @@
 </code></pre>
 
 <p>now open your browser and open <a href="http://your-server-ip:3000,you">http://your-server-ip:3000,you</a> can find the rails project default page.</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/03/03/puma-a-ruby-web-server-for-concurrent/">Puma: 一个为并发构建的Ruby服务器</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-03-03T19:14:42+08:00" pubdate data-updated="true">Mar 3<span>rd</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>本文翻译自Puma官方文档，同时发布于<a href="https://github.com/oa414/puma/blob/master/README.zh.md">Github</a></p>
+  <entry>
+    <title type="html"><![CDATA[Puma: 一个为并发构建的Ruby服务器]]></title>
+    <link href="http://mmclub.github.io/blog/2014/03/03/puma-a-ruby-web-server-for-concurrent/"/>
+    <updated>2014-03-03T19:14:42+08:00</updated>
+    <id>http://mmclub.github.io/blog/2014/03/03/puma-a-ruby-web-server-for-concurrent</id>
+    <content type="html"><![CDATA[<p>本文翻译自Puma官方文档，同时发布于<a href="https://github.com/oa414/puma/blob/master/README.zh.md">Github</a></p>
 
 <p>译者：林翔宇</p>
 
@@ -568,42 +428,15 @@ end
 <h2>协议</h2>
 
 <p>Puma 的版权属于Evan Phoenix 和 贡献者. 它基于BSD 协议. 详见LICENSE文件。</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/03/02/decompile-in-android/">Android反编译入门与反编译防范</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-03-02T22:04:22+08:00" pubdate data-updated="true">Mar 2<span>nd</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>作者: 林翔宇</p>
+  <entry>
+    <title type="html"><![CDATA[Android反编译入门与反编译防范]]></title>
+    <link href="http://mmclub.github.io/blog/2014/03/02/decompile-in-android/"/>
+    <updated>2014-03-02T22:04:22+08:00</updated>
+    <id>http://mmclub.github.io/blog/2014/03/02/decompile-in-android</id>
+    <content type="html"><![CDATA[<p>作者: 林翔宇</p>
 
 <h2>反编译Java代码</h2>
 
@@ -658,42 +491,15 @@ end
 <li><a href="http://stackoverflow.com/questions/1249973/decompiling-dex-into-java-sourcecode">StackOverFlow decompiling DEX into Java sourcecode</a></li>
 </ul>
 
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/03/02/android-test-1/">Android测试入门(一) Activity测试简介</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-03-02T21:54:03+08:00" pubdate data-updated="true">Mar 2<span>nd</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>作者：林翔宇</p>
+  <entry>
+    <title type="html"><![CDATA[Android测试入门(一) Activity测试简介]]></title>
+    <link href="http://mmclub.github.io/blog/2014/03/02/android-test-1/"/>
+    <updated>2014-03-02T21:54:03+08:00</updated>
+    <id>http://mmclub.github.io/blog/2014/03/02/android-test-1</id>
+    <content type="html"><![CDATA[<p>作者：林翔宇</p>
 
 <h2>瞎扯</h2>
 
@@ -1012,42 +818,15 @@ end
 <p><a href="https://github.com/mmclub/MMDaily/tree/23ee19d4b25889a5a112f4f6d39e4d306fc8d82b">项目的代码</a></p>
 
 <p>这就是一个最简单的Android测试的样例了，之后我们会介绍其他Android SDK里面测试相关的东西。</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/03/02/design-in-canteen/">设计之食堂有感</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-03-02T21:53:49+08:00" pubdate data-updated="true">Mar 2<span>nd</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>作者： 王涛</p>
+  <entry>
+    <title type="html"><![CDATA[设计之食堂有感]]></title>
+    <link href="http://mmclub.github.io/blog/2014/03/02/design-in-canteen/"/>
+    <updated>2014-03-02T21:53:49+08:00</updated>
+    <id>http://mmclub.github.io/blog/2014/03/02/design-in-canteen</id>
+    <content type="html"><![CDATA[<p>作者： 王涛</p>
 
 <p>今天看了知乎上有一个回答<a href="www.zhihu.com/question/22153036">设计成就的关键是“勤奋”还是“天赋”</a>。</p>
 
@@ -1080,42 +859,15 @@ end
 <blockquote><p>“天赋决定上限，努力决定下限”，所以，以我们现在的用心和努力程度，根本轮不上比天赋。</p></blockquote>
 
 <p>什么样的心态，就有什么样的环境，不要埋怨现在的环境，努力让自己变强，才能在更好的环境成长，不然去了也是白去。</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/03/02/internet-and-hardware/">互联网引发的硬件革命</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-03-02T21:52:21+08:00" pubdate data-updated="true">Mar 2<span>nd</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>谷歌glass计划横空出世令人眼前一亮，随后各种便携式智能硬件如雨后春笋般涌现出来，智能可穿戴设备已经成为下一代移动互联网的主要研究发展方向,这一切的产生，都将归功于互联网的快速发展&hellip;.</p>
+  <entry>
+    <title type="html"><![CDATA[互联网引发的硬件革命]]></title>
+    <link href="http://mmclub.github.io/blog/2014/03/02/internet-and-hardware/"/>
+    <updated>2014-03-02T21:52:21+08:00</updated>
+    <id>http://mmclub.github.io/blog/2014/03/02/internet-and-hardware</id>
+    <content type="html"><![CDATA[<p>谷歌glass计划横空出世令人眼前一亮，随后各种便携式智能硬件如雨后春笋般涌现出来，智能可穿戴设备已经成为下一代移动互联网的主要研究发展方向,这一切的产生，都将归功于互联网的快速发展&hellip;.</p>
 
 <p>可穿戴设备其实在6年前曾经火过一阵子。在2005—2010年里，联发科MTK当道，一块芯片集成了MTK片上操作系统，256K内存，触摸屏驱动以及SIM解码等手机基本功能，而由此造成的后果就是没有太多的厂商愿意自己去研发新的技术，直接把MTK的授权和芯片买过来，加上电池屏幕以及一些基本的电路保障系统就制造出一台手机，以至于大陆境内山寨机泛滥，整个产业前途茫茫。穷则思变，最先在“可穿戴”上面做文章的公司叫“yami科技”，是一家台湾的大学生创业公司，推出的产品“Yami手表手机”虽然也是采用的MTK解决方案，但是把电路板和电池设计的很小，虽然较手表还是大了一些，但是也有其他的一些补全性的设计比如有一颗30万像素的摄像头可以进行暗处偷拍，也算弥补了外观的缺憾，但最终还是没能在大陆火很久，最主要的原因就是可操作性不强，太小的屏幕，用来显摆显摆，接听电话还行，但是不能满足年轻人对游戏和娱乐的追求，所以这类型的手机在不到1年的时间里就已经不能在市场见到踪影了。</p>
 
@@ -1128,42 +880,15 @@ end
 <p>软件，是为硬件服务的，而硬件，则是为物物互联，也就是物联网服务的，云计算的兴起和硬件的迅速发展，也给软件创造了一个机会，随着人们娱乐享受的提高，娱乐型软件也又有了重出江湖的趋势，务必要把握好时机，创造出更多与硬件结合的服务。</p>
 
 <p>最后，愿有志之士把握好时代的方向，创造更多有趣的，改变世界的产品。</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/02/25/code-right-now/">马上码代码</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-02-25T10:52:41+08:00" pubdate data-updated="true">Feb 25<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><ul>
+  <entry>
+    <title type="html"><![CDATA[马上码代码]]></title>
+    <link href="http://mmclub.github.io/blog/2014/02/25/code-right-now/"/>
+    <updated>2014-02-25T10:52:41+08:00</updated>
+    <id>http://mmclub.github.io/blog/2014/02/25/code-right-now</id>
+    <content type="html"><![CDATA[<ul>
 <li>作者 <a href="https://github.com/1019439568">ClownQiang</a></li>
 </ul>
 
@@ -1207,42 +932,15 @@ end
 <li><a href="https://github.com/1019439568/Truth-or-Dare">真心话大冒险</a></li>
 </ul>
 
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/02/24/talk-about-mobilephone-hardware/">智能手机硬件分析及近期热门智能手机推荐</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-02-24T11:15:52+08:00" pubdate data-updated="true">Feb 24<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>写在前面</h2>
+  <entry>
+    <title type="html"><![CDATA[智能手机硬件分析及近期热门智能手机推荐]]></title>
+    <link href="http://mmclub.github.io/blog/2014/02/24/talk-about-mobilephone-hardware/"/>
+    <updated>2014-02-24T11:15:52+08:00</updated>
+    <id>http://mmclub.github.io/blog/2014/02/24/talk-about-mobilephone-hardware</id>
+    <content type="html"><![CDATA[<h2>写在前面</h2>
 
 <p>俱乐部近期会持续更新包括移动开发技术点探讨，个人心得等围绕移动互联网领域的一系列文章，敬请期待。</p>
 
@@ -1515,162 +1213,16 @@ end
 <p>  写到这里，我觉得不能再这么写下去了，在详细分析了5款手机之后，觉得再写下去没必要了，小伙伴们应该都大概知道从哪些方面去判断一款手机的好坏了。（说明：为了介绍这些手机，我浏览了很多网站，看了很多测评文章和视频，也研究了好多关于cpu，屏幕，摄像头的知识，这次是真的长知识了，以上的所有观点，全部是我从我看到的听到的无数篇测评文章和视频中总结出来的，也加上了自己的一些观点。也许和实际情况有所不同，但是限于本人能力有限，能写的只有这么多了）</p>
 
 <p>下面就列举一下国产手机中性价比较高的几款手机，小米2s、魅族mx2、Nubia Z5S、Nubia Z5S mini、金立Elife E7、金立Elife E6、华为荣耀3X、华为荣耀3C、红米。。。。。。其实还有很多国产手机没有列举，我挑选了几款最具性价比的手机作为代表。这里就不再继续写下去了，最后在扯一下个人对于国产手机的看法，说是国产手机，可是屏幕，cpu，摄像头都是国外进口的，组装起来就是国产了。你好意思说是国产，我都不好意思听，这也是没办法的事情，不得不承认，国产手机正在飞速崛起，这是一个积极的信号，华为中兴都在研发具有自主知识产权的cpu，华为的海思处理器，特点在于音频解码能力强，代表机型有华为p6，这是一款外观精致的手机。听说最近天朝也发布了具有自主知识产权的操作系统，cos和960os，号称从安全角度出发，从本质上区别于android和ios，好吧，这又是一个积极的信号，但是这真的能打败ios和android吗？我觉得天朝不采取点强制性措施是不可能的。不过就目前情况来看cos并不被看好，甚至已经淡出人们的视线。由于miui的成功，最近又蹦出了IUNI OS（基于android深度定制的ROM），号称以小米反小米，IUNI界面简洁漂亮，给人一种清爽的感觉，不过免不了被扣上模仿ios7的帽子，据IUNI官方宣称，IUNI手机在性价比方面将全面超越小米手机，这一点值得期待，与miui不同，IUNI给系统做减法，精简rom打着生来纯净的旗号，集成了一些第三方服务，不会预装任何第三方软件。目前IUNI手机还没有上市，据说2014年3月上市，IUNI　OS目前适配了三星s4，有兴趣的同学可以刷机体验一把，2014年2月24日开放公测，之后会陆续适配热门手机。好了，我了解的就只有这么多了，喜欢搞机的同学可以自己上网去详细了解一下。</p>
-</div>
+]]></content>
+  </entry>
   
+  <entry>
+    <title type="html"><![CDATA[Hello World]]></title>
+    <link href="http://mmclub.github.io/blog/2014/01/24/hello-world/"/>
+    <updated>2014-01-24T23:05:46+08:00</updated>
+    <id>http://mmclub.github.io/blog/2014/01/24/hello-world</id>
+    <content type="html"><![CDATA[<p>欢迎进入南京邮电大学移动互联网俱乐部的Blog。</p>
+]]></content>
+  </entry>
   
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/01/24/hello-world/">Hello World</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-01-24T23:05:46+08:00" pubdate data-updated="true">Jan 24<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>欢迎进入南京邮电大学移动互联网俱乐部的Blog。</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</div>
-<aside class="sidebar">
-  
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/2014/03/30/think-of-sohu-competition/">参加搜狐比赛有感</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/30/install-ruby-on-rails-on-centos/">How to Install Ruby on Rails on CentOS 6.5 Using Rbenv</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/03/puma-a-ruby-web-server-for-concurrent/">Puma: 一个为并发构建的Ruby服务器</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/02/decompile-in-android/">Android反编译入门与反编译防范</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/02/android-test-1/">Android测试入门(一) Activity测试简介</a>
-      </li>
-    
-  </ul>
-</section>
-
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  
-  <a href="https://github.com/mmclub">@mmclub</a> on GitHub
-  
-  <script type="text/javascript">
-    $(document).ready(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'mmclub',
-            count: 0,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
-</section>
-
-
-
-
-
-  
-</aside>
-
-    </div>
-  </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2014 - MMClub -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
-
-</footer>
-  
-
-<script type="text/javascript">
-      var disqus_shortname = 'mmclub-blog';
-      
-        
-        var disqus_script = 'count.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
-</script>
-
-
-
-
-
-
-
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = '//platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
-
-
-
-
-
-</body>
-</html>
+</feed>
