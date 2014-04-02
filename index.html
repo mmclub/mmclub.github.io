@@ -9,7 +9,7 @@
   <meta name="author" content="MMClub">
 
   
-  <meta name="description" content="作者：苏东生 去年的11月，搜狐公司举办了2014“比武招新”比赛，比赛主要分三个环节：“夺”宝典、“闯”奇关、“攻”擂台，最终优胜者将获得现金大奖和实习offer的奖励。上个学期我和两个老乡一起参加了比赛并且最后拿到了比赛的一等奖，我们自己都有些预想不到，本来只是抱着尝试的态度参加比赛而已。好吧 &hellip;">
+  <meta name="description" content="作者: 林翔宇 入门 配置环境 请在官方网站下载对应的JDK包安装。注意你的系统版本是32位还是64位的，分别下载对应的版本。如果是Windows用户，请尽量按默认选项安装，Mac / Linux用户请用对应的包管理工具安装。这一步出现问题，网上会有很多解决方案。 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,165 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/04/03/start-learning-android/">Android入门杂谈</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-04-03T00:29:07+08:00" pubdate data-updated="true">Apr 3<span>rd</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>作者: 林翔宇</p>
+
+<h2>入门</h2>
+
+<h3>配置环境</h3>
+
+<ul>
+<li>请在<a href="http://www.java.com/zh_CN/">官方网站</a>下载对应的JDK包安装。注意你的系统版本是32位还是64位的，分别下载对应的版本。如果是Windows用户，请尽量按默认选项安装，Mac / Linux用户请用对应的包管理工具安装。这一步出现问题，网上会有很多解决方案。</li>
+<li>去<a href="http://developer.android.com/sdk/index.html">Android官方网站</a>下载Android Studio或者ADT Bundle, 分别对应基于Intellij IDLE和Eclipese的Andorid开发IDE，解压就能使用。</li>
+</ul>
+
+
+<h3>学习语言</h3>
+
+<ul>
+<li>你需要学习叫Java的一门编程语言，仅需入门，明白基础概念，并能写一些非常简单的小程序就可以了</li>
+<li>学到哪里足够了呢？知道<code>if</code>, <code>for</code>, <code>while</code> , 分别是用来干什么的， 知道类，对象，方法是什么东东, 最好能理解抽象类(abtract class)和接口(interface)这种奇怪的东西存在的原因～</li>
+<li>书籍推荐 《Head First Java》，适合有任意一门语言基础的，知道<code>if</code>, <code>for</code>, <code>while</code> 以及函数分别是用来干什么的孩子学习。</li>
+<li>你并不用十分深入的去学习Java，可以在边学Android的同时学习Java，两者的学习相辅相成。注意：如果你只是想写Android或者Java语言本身，你不必去接触J2EE那些庞大的知识体系，那些和Android基本没什么关系。</li>
+<li>不想用Java写Android？当然可以。
+
+<ul>
+<li> 你可以选择一些商业的第三方游戏引擎自带支持的语言写Android程序</li>
+<li> 熟悉.Net? 试试 <a href="http://xamarin.com/monoforandroid">Xamarin.Android</a></li>
+<li> 熟悉Scala或者Clojure? 这些基于JVM的语言也都有对应的写Android程序的方案</li>
+<li> 是一个Web开发者? <a href="http://phonegap.com/">PhoneGap</a>, <a href="http://jquerymobile.com/">Jquery Mobile</a>等相关的开源框架在朝你招手。借助HTML5的新特性与强大的基于Webkit的浏览器内核，你也可以用Web前端技术写出不错的Andorid程序。</li>
+<li>但是话说回来，绝大多数Android程序还是用Java进行开发，并且用Java开发Android的资料很多很多。所以，尽量还是使用Java吧～</li>
+</ul>
+</li>
+</ul>
+
+
+<h3>Android入门</h3>
+
+<ul>
+<li>官方网站有一整套的<a href="http://developer.android.com/training/index.html">Android Tranning 入门教程</a>, 质量很高而且都是官方的最佳实践，强烈建议一看。</li>
+<li>当然官方教程门槛对于0基础的初学者还是有点高，此时建议买一本书学习Android的基本概念和基本入门。毕竟有本书的感觉是不一样的。。。推荐： Apress出版社，Wrox出版社， Orelly出版社的书，国内也引进了一些翻译版本。强烈建议看国外的书，至少能保证条理清晰。</li>
+</ul>
+
+
+<h2>入门到初步掌握</h2>
+
+<p>我建议按照以下步骤来</p>
+
+<ul>
+<li>学习最基本的Android概念，会写Hello World，用XML写最简单的布局。</li>
+<li>找一本cookbook类型的书，也就是每一小节都带你实现一个小小的功能，让你每次都能接触到新鲜的东西，比较有成就感，而且同时巩固基础。</li>
+<li>整理Android概念，比如重新回过头看看<a href="http://developer.android.com/training/index.html">Android Tranning 入门教程</a>，搞明白Activity, Service, Content Provider, Broadcast到底是什么东西，比较熟练的掌握一些常用的功能，比如按钮点击时间，对话框提醒，文件保存，网络资源获取等等。</li>
+<li>开始做一些小东西，阅读大量的优秀应用的源代码，学会使用开源库， 阅读<a href="http://developer.android.com/develop/index.html">Android Developer</a>的 Training, API Guide以及 Tools。具体哪个类不明白的话，就去Reference查</li>
+<li>最后说一句，这只是个人实践得出来的感觉不算差的方法，我也打算尝试以另一种方式培训0基础的有兴趣的同学，具体的方法可以自己选择，但是我强烈建议2点
+
+<ol>
+<li>生命宝贵，有限的时间应该用来约漂亮姑娘(或泡帅哥)，游玩，享受人生，而不是贪图方便看一些国内无厘头或者水分很多的资料</li>
+<li>你投入的时间和你的收获正相关，只要付出努力终有回报</li>
+</ol>
+</li>
+</ul>
+
+
+<h2>资源</h2>
+
+<p>善于利用现有的资源，善于使用第三方开源库</p>
+
+<ul>
+<li><a href="https://github.com/">Github</a>  最热门的开源分享网站，你能找到很多<a href="https://github.com/search?q=android&amp;type=Repositories&amp;s=stars">高质量的Android开源库</a></li>
+<li><a href="http://www.csdn.net/article/2013-05-03/2815127-Android-open-source-projects">这里</a>有一些第三方开源库的介绍</li>
+<li><a href="http://www.appdevwiki.com/wiki/show/HomePage">App Dev Wiki</a></li>
+<li><a href="http://www.androidviews.net/">Android Views</a></li>
+<li><a href="http://www.theultimateandroidlibrary.com/">The Ultimate Android Library</a></li>
+<li>国内最大的论坛应该是<a href="http://www.eoeandroid.com/">eoe</a>, 不过内容比较水。。我偶尔也会去<a href="http://www.oschina.net/android">开源中国</a>逛逛</li>
+</ul>
+
+
+<p>善于在网上寻找答案</p>
+
+<ul>
+<li>请务必使用Google而不是百度</li>
+<li>学会使用<a href="http://stackoverflow.com/">stackoverflow</a>, 这里有几乎所有细节问题的解决方案</li>
+</ul>
+
+
+<p>善于获取最新资讯</p>
+
+<ul>
+<li>关注Google/Android官方的资讯</li>
+<li>订阅<a href="http://androiddevweekly.com/">AndroidDevWeekly</a>,每周会发一封最新的资讯到邮箱</li>
+</ul>
+
+
+<h2>发布</h2>
+
+<h3>用户追踪，反馈与推送通知</h3>
+
+<p>用户追踪和反馈可以自己实现客户端功能与服务器端，也可以使用第三方的服务。比如<a href="http://www.umeng.com/">友盟</a>, <a href="https://www.parse.com/">Parse</a> 等。</p>
+
+<p>因为谷歌很多服务，包括推送通知在大陆是被封掉的，建议使用<a href="http://www.jpush.cn/">极光推送</a>,<a href="https://www.parse.com/">Parse</a>的SDK。非常不建议用后台进程轮询的方法查询，费电费流量。</p>
+
+<h3>发布之前</h3>
+
+<ul>
+<li>记得对应用进行签名</li>
+<li><a href="http://mtc.baidu.com/">百度云测试</a>，<a href="http://www.testin.cn/portal.action?op=Portal.index">云测</a>可以帮你解决众多机型的测试问题</li>
+</ul>
+
+
+<h3>Android市场现状</h3>
+
+<ul>
+<li>国内发布Android应用很纠结，机锋，安卓，安智，木蚂蚁，应用汇等等。没有特别的方法，多注册几个账号吧。</li>
+<li>强烈建议注册Google Play开发人员，应用无需审核马上就能上架，面向全球市场。注册需要VISA/Mastercard的国际信用卡，以及一次性25美金的费用。</li>
+</ul>
+
+
+<h2>盈利</h2>
+
+<p>这里只谈个人开发者或业余小团队的盈利方式</p>
+
+<p>Android国内收费应用市场很难发展，如果做游戏等应用可以考虑应用内购买的方式。普通应用的盈利方式有</p>
+
+<ul>
+<li>广告条。收入低，但是也是一种方式。国内有各种广告商，但是个人推荐<a href="https://zhcn.admob.com">Admob</a></li>
+<li>做外包项目。通过关系网接外包项目，或者上<a href="http://elance.com/">Elance</a>，<a href="http://www.freelancer.com/">Freelancer</a>, <a href="https://www.odesk.com/">Odesk</a>接国外外包项目，十分不推荐上猪八戒这些国内网站接项目，市场规范程度和收入远低于国外</li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -154,7 +313,12 @@
   </header>
 
 
-  <div class="entry-content"><h2>Introduction</h2>
+  <div class="entry-content"><ul>
+<li>Author: Lin Xiangyu</li>
+</ul>
+
+
+<h2>Introduction</h2>
 
 <h3>Ruby on Rails</h3>
 
@@ -1522,43 +1686,9 @@ end
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/01/24/hello-world/">Hello World</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-01-24T23:05:46+08:00" pubdate data-updated="true">Jan 24<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>欢迎进入南京邮电大学移动互联网俱乐部的Blog。</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
+    
+      <a class="prev" href="/blog/page/2/">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
     
@@ -1569,6 +1699,10 @@ end
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/04/03/start-learning-android/">Android入门杂谈</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/03/30/think-of-sohu-competition/">参加搜狐比赛有感</a>
@@ -1584,10 +1718,6 @@ end
     
       <li class="post">
         <a href="/blog/2014/03/02/decompile-in-android/">Android反编译入门与反编译防范</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/02/android-test-1/">Android测试入门(一) Activity测试简介</a>
       </li>
     
   </ul>
