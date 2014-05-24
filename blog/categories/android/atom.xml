@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Android | 南京邮电大学移动互联网俱乐部]]></title>
   <link href="http://mmclub.github.io/blog/categories/android/atom.xml" rel="self"/>
   <link href="http://mmclub.github.io/"/>
-  <updated>2014-04-03T00:30:10+08:00</updated>
+  <updated>2014-05-24T18:57:35+08:00</updated>
   <id>http://mmclub.github.io/</id>
   <author>
     <name><![CDATA[MMClub]]></name>
@@ -12,6 +12,57 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[关于某App外包开发心得（一）]]></title>
+    <link href="http://mmclub.github.io/blog/2014/05/24/think-of-a-outsourcing-app-develpment-1/"/>
+    <updated>2014-05-24T18:55:07+08:00</updated>
+    <id>http://mmclub.github.io/blog/2014/05/24/think-of-a-outsourcing-app-develpment-1</id>
+    <content type="html"><![CDATA[<ul>
+<li>作者: 戴志强</li>
+</ul>
+
+
+<blockquote><p>前段时间开发了人生的第一个外包App，相对平时做的一些App，有了一定的压力，而且有了更高的要求，不仅仅要有功能上的实现，而且有了更多其他的要求，比如手机的适配，改不完的要求，以及无良android商家对android的修改，比如小米，简直无力吐槽。最后统计java代码量达到了9991行，虽然java比较繁琐，而且我们技术有限，接口以及代码复用做的不太好，但是对于我们还是一个比较大的项目，然而关于这样一个项目是怎么样生成的，希望能给到大家一点启示。</p></blockquote>
+
+<h3>项目功能的初步建模</h3>
+
+<blockquote><p>一个比较大的项目，不管是外包，还是自己想做的，都会有一个大概的功能框架，虽然说做出模型图片，不是程序员的任务，但是通过这次项目，我深深的认识到，一个android的原型图，至少应该派一个程序员与美工(UI设计师~)进行交流，不然他们设计出来的菜单等级，以及酷炫的风格会让你蛋疼无比，然后还会丢下一句“说这么多干什么，不就是做不出来吗？”，为了你的代码难度在你的一定掌握范围内，所以一个靠谱的任必须去和美工一起定原型图，这个非常重要，因为android是没有做到绝对的界面与代码分离，而且基本上美工不懂android布局，所以他们完全不能认识到设计出来的布局到底有多大的难度，这是我遇到的第一个坑。。。</p></blockquote>
+
+<h3>项目功能的考究</h3>
+
+<blockquote><p>终于解决了基本模型的问题，接下来就是功能，无论你是做什么样的软件，功能是离不开的，举个例子，“掌上南邮”我虽然没有参与做，但是看到这个软件，大家都会知道功能有哪些，比如进入界面有个天气预报，用了webservice，接下来的图书馆，用了android中http传输信息然后jsoup爬取图书馆信息，等等。对这些功能做了基本分析，可以将这些技术点分个类，较简单，难，很难，这样你的侧重点，当然还有开发中可能遇到的坑，不要小瞧这一点，一个坑可以让你白忙活一天，还有太难的地方必须有一定的规划，不然就不只是浪费时间了。</p></blockquote>
+
+<h3>项目页面分配</h3>
+
+<blockquote><p>这个也是一个问题，现在做android应用，人多会有，项目结合以及理解性的偏差，所以我的建议是，“能一个人做的不要两个人”，这个真的是很重要，人多力量大主要体现在搬砖，在这里人越少你的代码的统一性更能体现，而且很多的地方都在你的控制范围内，比如数据方法封装。。。但是要两个人或者更多了，这个时候<a href="https://www.github.com">github</a>,<a href="https://trello.com">trello</a>等作为团队合作的神器就来了，更重要的是分配任务时要注意尽量将粘合度比较低的界面分离出去。关于工具类以及接口的整合，我觉得可以先几个人用自己的类写，然后重构时再合到一起，或者还可以让一个比较靠谱的人去写工具类，注意要比较靠谱，因为他的速度要能跟上其他人的速度，为他们提供方法和接口。</p></blockquote>
+
+<h3>项目工程的建立</h3>
+
+<blockquote><p>大家终于要告别一个com.example.Hello写完全部类的时代了，一个好的工程目录可以清晰的看出这个项目的结构，一般不要以com.example中的example因为你提交你的android app到应用市场，他会读出你的包名，如果是example有的是不会接受的。</p></blockquote>
+
+<p>举个项目目录例子：</p>
+
+<pre><code>org.clownxiaoqiang.test
+├── adapter
+├── util    
+├── widget
+├── model     
+└── ui
+    ├── flash
+    ├── home     
+    ├── shop
+    ├── me
+    └── more
+</code></pre>
+
+<blockquote><p>大家看到的这个例子，分了很多的目录其实还不算标准，在ui下面有了很多，这个就是我们看到的各种界面，一个大的集合为一个，这样不同人在开发时就不会干扰，而且很有序，其实一开始工作做好了，后面的代码重构会简单很多，这里有一个个人开发的<a href="https://github.com/gonjay/rubychina4android">rubychina4android</a>android app，大家可以看下他的工程目录，学习一下。</p></blockquote>
+
+<h3>后记</h3>
+
+<blockquote><p>一个好的写代码习惯也是非常重要的，比如命名，减少冗余代码等，不要小瞧任何一点，同时不要受身边的人干扰，不要认为写android就会低端，如果你能在这条路上做到极致，你也是牛X的，如果再有人对你炫耀他是做底层的，你就把手机丢他脸上，让他自己写app装上去。还有，一个靠谱的包工头，简直太TM重要了。</p></blockquote>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Android入门杂谈]]></title>
