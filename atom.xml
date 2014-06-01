@@ -4,7 +4,7 @@
   <title><![CDATA[南京邮电大学移动互联网俱乐部]]></title>
   <link href="http://mmclub.github.io/atom.xml" rel="self"/>
   <link href="http://mmclub.github.io/"/>
-  <updated>2014-05-24T18:57:35+08:00</updated>
+  <updated>2014-06-01T10:34:54+08:00</updated>
   <id>http://mmclub.github.io/</id>
   <author>
     <name><![CDATA[MMClub]]></name>
@@ -14,7 +14,286 @@
 
   
   <entry>
-    <title type="html"><![CDATA[关于某App外包开发心得（一）]]></title>
+    <title type="html"><![CDATA[关于某App外包开发心得－iOS篇（一）]]></title>
+    <link href="http://mmclub.github.io/blog/2014/06/01/think-of-a-outsourcing-app-ios-develpment-1/"/>
+    <updated>2014-06-01T10:26:47+08:00</updated>
+    <id>http://mmclub.github.io/blog/2014/06/01/think-of-a-outsourcing-app-ios-develpment-1</id>
+    <content type="html"><![CDATA[<ul>
+<li>作者 ： 林翔宇</li>
+</ul>
+
+
+<p>前不久和朋友一起合作了一个外包App项目，我负责iOS和后台Server，另外两名同学合作开发Android端。现在项目已经进入收尾上架工作，我将就开发过程中的一些感想与收获进行总结。</p>
+
+<h2>使用CocoaPods做依赖管理以及开发用到的第三方开源项目</h2>
+
+<p>CocoaPods真是依赖管理神器，比Andorid的Maven或者Gradle方便多了。具体试用可以看看这篇文章<a href="http://blog.devtang.com/blog/2014/05/25/use-cocoapod-to-manage-ios-lib-dependency/">唐巧－用CocoaPods做iOS程序的依赖管理
+</a></p>
+
+<p>而且最近CocoaPods的Spec有了第三方国内镜像，速度快多了，为什么之前开发的时候木有，加一个库要等半天(ノДＴ) 。 所以我之前修改Podfile后是这样更新的（不更新Spec库并且有提示）：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>pod install --verbose --no-repo-update   </span></code></pre></td></tr></table></div></figure>
+
+
+<p>我项目里面的第三方依赖有：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>
+</span><span class='line'>    #import &lt;AVOSCloud/AVOSCloud.h&gt; // AVOSCloud SDK
+</span><span class='line'>    #import &lt;MAMapKit/MAMapKit.h&gt;   // 高德地图
+</span><span class='line'>    #import &lt;AFNetworking/AFNetworking.h&gt; // AFNetworking 网络通信   
+</span><span class='line'>
+</span><span class='line'>    #import &lt;UIColor+ChineseColor.h&gt; // 自己的项目复用模块
+</span><span class='line'>    #import &lt;MMCommon/MMCommon.h&gt;  
+</span><span class='line'>
+</span><span class='line'>    #import &lt;SVProgressHUD/SVProgressHUD.h&gt; // 加载提示的HUD
+</span><span class='line'>
+</span><span class='line'>    #import &lt;Underscore.m/Underscore.h&gt; // Objective-C的类似JavaScript的Underscore.js的辅助库
+</span><span class='line'>    
+</span><span class='line'>    #import &lt;UMengAnalytics/MobClick.h&gt;  // 友盟统计和SNS集成
+</span><span class='line'>    #import &lt;TencentOpenAPI/TencentApiInterface.h&gt;
+</span><span class='line'>    #import &lt;TencentOpenAPI/QQApiInterface.h&gt;
+</span><span class='line'>    #import &lt;TencentOpenAPI/TencentOAuth.h&gt;
+</span><span class='line'>    #import &lt;UMengSocial/UMSocialData.h&gt;
+</span><span class='line'>    #import &lt;UMengSocial/UMSocialSnsService.h&gt;
+</span><span class='line'>    
+</span><span class='line'>    #import &lt;SDWebImage/UIButton+WebCache.h&gt; // 异步图片加载
+</span><span class='line'>    #import &lt;SDWebImage/UIImage+GIF.h&gt;
+</span><span class='line'>    #import &lt;SDWebImage/UIImageView+WebCache.h&gt;
+</span><span class='line'>    #import &lt;SDWebImage/UIImageView+WebCache.h&gt;
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>不得不提的是使用中。。友盟以及SNS集成过程中，不够清楚的文档以及那些坑的地方，还有调试了几天才发现是SDK悄悄升级，之前的SDK不能用的情况。</p>
+
+<p>在使用的时候，为了更优雅的进行依赖管理，我也为高德地图和友盟SNS创建了Podfile并且提交到了CocoaPods/Spec库里面，需要的童鞋可以看看<a href="https://github.com/oa414/Specs/commits/master">https://github.com/oa414/Specs/commits/master</a></p>
+
+<p>我们同时用了AVOSCloud与友盟，这两个第三方开发者平台功能有很多重复，但是当前各有长处。未来可能迁移到其中一个。</p>
+
+<h2>iOS MVC与界面布局的一些实践</h2>
+
+<p>最初的时候，为了快速开发，全部使用了Storyboard，这让我在一个小时就把几十个页面跳转关系全部做好了。。。而且可以作为原型演示给UI童鞋和Android童鞋看。到后来，发现Storyboard管理几十个页面完全是坑，很多东西代码写更方便，并且即使是23寸的显示器在Interface Building里面拖动各个View也好麻烦。。。于是把这个Tab布局的应用按照五个Tab拆成五个StoryBoard了。主要用代码做布局和跳转，同时取巧用了StoryBoard一些方便的地方。</p>
+
+<p>把各个Tab对应内容分离到不同的StoryBoard的方法：（代码好丑）</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>
+</span><span class='line'>+(UIViewController *)initViewController :(NSString *)storyBoardName
+</span><span class='line'>                            identifier:(NSString *)identifier
+</span><span class='line'>                              iconName:(NSString *)iconName
+</span><span class='line'>                                 withTag:(int) tag{
+</span><span class='line'>    
+</span><span class='line'>    UIViewController *vc = [SXAppDelegate viewControllerWithStoryBoard:storyBoardName identifier:identifier];
+</span><span class='line'>    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+</span><span class='line'>  
+</span><span class='line'>    [nav.tabBarItem setImage:[SXAppDelegate getIconImage:iconName]];
+</span><span class='line'>    
+</span><span class='line'>    nav.tabBarItem.image = [[SXAppDelegate getIconImage:iconName] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+</span><span class='line'>
+</span><span class='line'>    
+</span><span class='line'>    UIImage *selectImage = [SXAppDelegate getIconPressedImage:iconName];
+</span><span class='line'>    selectImage = [selectImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+</span><span class='line'>    DebugLog(@"select Image %@", selectImage);
+</span><span class='line'>    [nav.tabBarItem setSelectedImage:selectImage];
+</span><span class='line'>    nav.tabBarItem.selectedImage = selectImage;
+</span><span class='line'>    [[UITabBar appearance] setTintColor:[SXAppDelegate getNavColor:iconName]];
+</span><span class='line'>    
+</span><span class='line'>    nav.tabBarItem.tag = tag;
+</span><span class='line'>    
+</span><span class='line'>    [nav.tabBarItem setTitleTextAttributes:@{
+</span><span class='line'>                                            NSForegroundColorAttributeName : [SXAppDelegate getNavColor:iconName] }     forState:UIControlStateSelected];
+</span><span class='line'>
+</span><span class='line'>    
+</span><span class='line'>    
+</span><span class='line'>    NSDictionary *titles = @{
+</span><span class='line'>        @"home" : @"首页",
+</span><span class='line'>        @"product":@"产品",
+</span><span class='line'>        @"news": @"新闻",
+</span><span class='line'>        @"my": @"我的",
+</span><span class='line'>        @"more": @"更多",
+</span><span class='line'>    };
+</span><span class='line'>    [nav.tabBarItem setTitle:titles[iconName]];
+</span><span class='line'>    return nav;
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>    self.tabBarController = [[UITabBarController alloc] init];
+</span><span class='line'>    
+</span><span class='line'>    self.regVC = [SXAppDelegate initViewController:@"My" identifier:@"login" iconName:@"my" withTag:3];
+</span><span class='line'>    self.userVC = [SXAppDelegate initViewController:@"My" identifier:@"index" iconName:@"my" withTag:3];
+</span><span class='line'>    self.indexVC = [SXAppDelegate initViewController:@"Main" identifier:@"index" iconName:@"home" withTag:0];
+</span><span class='line'>    self.productVC = [SXAppDelegate initViewController:@"Product" identifier:@"index" iconName:@"product" withTag:1];
+</span><span class='line'>    self.newsVC = [SXAppDelegate initViewController:@"News" identifier:@"index" iconName:@"news" withTag:2];
+</span><span class='line'>    self.myVC = self.regVC;
+</span><span class='line'>    self.moreVC = [SXAppDelegate initViewController:@"More" identifier:@"index" iconName:@"more" withTag:4];
+</span><span class='line'>    
+</span><span class='line'>    DebugLog(@"Splash  %@", [SXSplashHelper splashImage]);
+</span><span class='line'>    
+</span><span class='line'>    if ([SXUser currentUser] == nil){
+</span><span class='line'>        [self setRegView];
+</span><span class='line'>    }else {
+</span><span class='line'>        [self setUserView];
+</span><span class='line'>    }
+</span><span class='line'>    
+</span><span class='line'>    self.window.rootViewController = self.tabBarController;
+</span><span class='line'>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>宏</h2>
+
+<p>有几个常用的宏可以和大家分享下：</p>
+
+<p>Debug环境下输出Log与行号</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#ifdef DEBUG
+</span><span class='line'>#define DebugLog( s, ... ) NSLog( @"[FILE]%@ %*s [LINE]%-*d [METHOD]%@ %*s [MESSAGE]%@", [[NSString stringWithUTF8String:__FILE__] lastPathComponent],30 - ([[[NSString stringWithUTF8String:__FILE__] lastPathComponent] length]),"", 5,__LINE__, NSStringFromSelector(_cmd), 75 - ([NSStringFromSelector(_cmd) length]),"", [NSString stringWithFormat:(s), ##__VA_ARGS__] )
+</span><span class='line'>#else
+</span><span class='line'>#define DebugLog( s, ... )
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>用RGB生成UIColor</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#define UIColorFromRGB(rgbValue) [UIColor \
+</span><span class='line'>colorWithRed:((float)((rgbValue & 0xFF0000) &gt;&gt; 16))/255.0 \
+</span><span class='line'>green:((float)((rgbValue & 0xFF00) &gt;&gt; 8))/255.0 \
+</span><span class='line'>blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]</span></code></pre></td></tr></table></div></figure>
+
+
+<p>获取App版本号</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#define APP_VERSION ([[NSBundle mainBundle] objectForInfoDictionaryKey: @"CFBundleShortVersionString"])
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>判断是否是4寸Retina屏幕</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) &lt; DBL_EPSILON )</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>让你事倍功半的开发工具</h2>
+
+<p>我觉得有一个外接液晶屏幕很重要。。。</p>
+
+<p>此外是一把比较好的椅子。。</p>
+
+<p>此外，推荐大家试试<a href="http://revealapp.com/">http://revealapp.com/</a>, 一款帮你轻松调试界面的App，收费软件，有试用版本，可以免去改参数－编译－点击查看对应View－改参数－编译的麻烦流程，直接在Reveal里面修改参数就能看到对应效果</p>
+
+<h2>iOS Developer账号的那些坑 与 提交审核</h2>
+
+<h3>iOS Developer 账号</h3>
+
+<p>如果希望认真学习开发iOS App，加入iOS开发者计划是必不可少的。当初为了真机调试，又是找破解Xcode的教程又是在淘宝上买开发者证书，最后还是靠亲爱的妈妈特地办了一张Visa信用卡乖乖付钱交了99美元年费。</p>
+
+<p>但是并不是乖乖叫了钱就一番风顺了。创建一个应用，你需要在开发面板上分别配置开发者证书，应用ID，调试设备，推送证书。。。并且绑定对应调试设备和应用ID。。。推送证书还分开发设备的Sandbox环境和Production环境。。。</p>
+
+<p>相关具体设置可以参见<a href="http://ryantang.me/blog/2013/11/28/apple-account-3/">苹果开发者账号那些事儿</a></p>
+
+<h3>测试分发</h3>
+
+<p>据说TestFlight很不错。。。最近被Apple收购了，我在使用过程中也感到各种不便。不过一些在应用内反馈给测试人员的特性还不错。</p>
+
+<p>最后我发测试包用的是<a href="http://fir.im/">Fir.im</a>，感觉还不错。另外AVOS也提供了相应的功能，值得一试。</p>
+
+<p>同时我也用一个晚上时间做了一个Android APK分发的Demo，放在 <a href="https://github.com/oa414/swan">Github</a>上，希望有空能完善。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[关于某App外包开发心得－Android篇（一）]]></title>
     <link href="http://mmclub.github.io/blog/2014/05/24/think-of-a-outsourcing-app-develpment-1/"/>
     <updated>2014-05-24T18:55:07+08:00</updated>
     <id>http://mmclub.github.io/blog/2014/05/24/think-of-a-outsourcing-app-develpment-1</id>
