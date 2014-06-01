@@ -1,0 +1,428 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>关于某App外包开发心得－Android篇（二） - 南京邮电大学移动互联网俱乐部</title>
+  <meta name="author" content="MMClub">
+
+  
+  <meta name="description" content="作者: 王涛 项目开发心得——合作篇 第一次做有规模的项目，跟之前的写些小东西相比，主要区别是：那人钱财，给人办事。但是既然是项目，我们就得以集体利益，也就是保质保量的完成东西为最终目标不是？ 与客户交流 需求明确 95%以上的需求要定
+改需求 = 做重复劳动 &ndash;> &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mmclub.github.io/blog/2014/06/01/think-of-a-outsourcing-app-develpment-2">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="南京邮电大学移动互联网俱乐部" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-47454479-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">南京邮电大学移动互联网俱乐部</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mmclub.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">关于某App外包开发心得－Android篇（二）</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-01T20:59:40+08:00" pubdate data-updated="true">Jun 1<span>st</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><ul>
+<li>作者: 王涛</li>
+</ul>
+
+
+<h3>项目开发心得——合作篇</h3>
+
+<p>第一次做有规模的项目，跟之前的写些小东西相比，主要区别是：那人钱财，给人办事。但是既然是项目，我们就得以集体利益，也就是保质保量的完成东西为最终目标不是？</p>
+
+<ol>
+<li><h4>与客户交流</h4>
+
+<ol>
+<li><h5>需求明确</h5>
+
+<ol>
+<li><p>95%以上的需求要定</p></li>
+<li><p>改需求 = 做重复劳动 &ndash;> 程序员最难受的事情</p></li>
+</ol>
+</li>
+<li><h5>阶段交付</h5>
+
+<ol>
+<li><p>明确交付时间</p></li>
+<li><p>阶段交付，确保和客户的需求没有大的偏差</p></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><h4>与UI交流</h4>
+
+<ol>
+<li><h5>设计稿要程序参与</h5>
+
+<ol>
+<li><p>设计没有代码经验，难免会做出很多让程序心碎的设计</p>
+
+<blockquote><p>这里最好熟悉AndroidUI设计推荐风格，因为只有越符合标准，越节约体力不是？</p></blockquote></li>
+<li><p>相同的功能设计的方式有很多种，有程序的参与会选出既好实现又符合需求的设计</p></li>
+<li><p>各个部分的效果要讨论明确，不然程序会做画蛇添足的事</p>
+
+<blockquote><p>例如我就把一个Item按钮写成了N个按钮，而且不只是多多了几个按钮那么简单</p></blockquote></li>
+</ol>
+</li>
+<li><h5>简洁设计，但要完整</h5>
+
+<ol>
+<li><p>能够表达清楚叫好了，没必要太花哨</p></li>
+<li><p>面面俱到，只要是不用原生的地方都要给出设计资源，这里如果设计师没能考虑周全，我们程序就要做善意的提醒了</p></li>
+</ol>
+</li>
+<li><h5>Android多平台设计需求</h5>
+
+<ol>
+<li><p>Android最蛋疼的分辨率适配，要明确需要适配的种类，</p></li>
+<li><p>这时候就需要设计师要针对各个分辨率设计包括：</p>
+
+<ol>
+<li><p>字号，这里需要说一下，建议不要设计太多种类的字号，想清楚要突出的部分，各个部分的之间的关系</p></li>
+<li><p>色系，建议不要太花，定好基调，保持风格一致。</p></li>
+<li><p>布局，Padding，Margin，border，corners</p></li>
+<li><p>字段，要显示的内容，要明确，不然又要重复劳动，看到这四个字就浑身难受！</p></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><h5>图片资源交接</h5>
+
+<ol>
+<li><p><strong>发送方式</strong></p>
+
+<ol>
+<li><p>trello.com是个很好的平台，可以用来上传下载图片，很方便，便于分类管理。</p></li>
+<li><p>邮件，速度快，便于保存，但不好分类管理，文件多了容易找不到。</p></li>
+</ol>
+</li>
+<li><p><strong>文件夹命名</strong></p>
+
+<ol>
+<li><p>建议根据所属页面命名，按层级分类</p></li>
+<li><p>建议用英文例如：Home_Bottom_RadioButton</p></li>
+</ol>
+</li>
+<li><strong>文件命名</strong>
+
+<ol>
+<li><p>必须用英文，如果设计用汉字，不仅有乱码风险，而且还得挨个换成英文，累死！</p></li>
+<li><p>由于大家对英文单词理解不同，最好先讨论下</p></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><h4>与Web后台交流</h4>
+
+<ol>
+<li><p>API的字段要交流好。这就要建立在：需求确定 &ndash;> 设计显示内容确定 &ndash;> 程序实现方式确定 &ndash;> API的字段交流</p></li>
+<li><p>API说明文档要交流，不然容易忽略重要内容</p>
+
+<blockquote><p>有个API是数据库要用户信息，我想当然以为是GET，但其实是POST，若是Web后台有特别考虑，要特别说明，不然会出现莫名其妙的错误</p></blockquote></li>
+<li><p>更新API要通知，不然会突然找不到数据。尤其是有一次被Web后台坑了，同样的字段，名字却打错了，害我调试好半天</p></li>
+</ol>
+</li>
+<li><h4>与客户端合作者交流</h4>
+
+<ol>
+<li><p>项目开始前的计划：</p>
+
+<ol>
+<li><p><strong>项目结构：</strong></p>
+
+<ol>
+<li><p>代码：Model，Adapter，Activity，View，Utils，Constant</p></li>
+<li><p>资源文件：</p>
+
+<ol>
+<li><p>定好各个色值，字号，便于调用且统一</p></li>
+<li><p>为了适配，建不同分辨率的资源文件，例如</p>
+
+<ul>
+<li>values</li>
+<li>values-mdpi</li>
+<li>values-hdpi</li>
+<li>values-xhdpi</li>
+</ul>
+</li>
+<li><p>为了适配，要用demin</p></li>
+<li><p>若控件很多且相似，可以用style让代码量减少</p></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p><strong>模块划分：</strong>这次做的信息类应用，大致上以页面划分</p></li>
+<li><p><strong>View：</strong>下拉菜单，Dialog，Toast，写好接口，方便使用</p></li>
+<li><p><strong>Utils：</strong>应用中的某些部分可以做成工具类，文件操作，用户登录信息操作，网络连接检查等</p></li>
+<li><p><strong>Constant：</strong>应用中的字符串常量</p></li>
+</ol>
+</li>
+<li><p>开发中遇到变化</p>
+
+<ol>
+<li><p>几个人同时改动了一个类要注明，例如：//Foci Add</p></li>
+<li><p>了解别人的代码，为了学习，也为了整个项目更好开发</p></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">MMClub</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-01T20:59:40+08:00" pubdate data-updated="true">Jun 1<span>st</span>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/android/'>Android</a>, <a class='category' href='/blog/categories/wai-bao/'>外包</a>, <a class='category' href='/blog/categories/wang-tao/'>王涛</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://mmclub.github.io/blog/2014/06/01/think-of-a-outsourcing-app-develpment-2/" data-via="" data-counturl="http://mmclub.github.io/blog/2014/06/01/think-of-a-outsourcing-app-develpment-2/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/06/01/think-of-a-outsourcing-app-ios-develpment-1/" title="Previous Post: 关于某App外包开发心得－iOS篇（一）">&laquo; 关于某App外包开发心得－iOS篇（一）</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/06/01/think-of-a-outsourcing-app-develpment-2/">关于某App外包开发心得－Android篇（二）</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/06/01/think-of-a-outsourcing-app-ios-develpment-1/">关于某App外包开发心得－iOS篇（一）</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/05/24/think-of-a-outsourcing-app-develpment-1/">关于某App外包开发心得－Android篇（一）</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/04/03/start-learning-android/">Android入门杂谈</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/30/think-of-sohu-competition/">参加搜狐比赛有感</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/mmclub">@mmclub</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'mmclub',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - MMClub -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'mmclub-blog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://mmclub.github.io/blog/2014/06/01/think-of-a-outsourcing-app-develpment-2/';
+        var disqus_url = 'http://mmclub.github.io/blog/2014/06/01/think-of-a-outsourcing-app-develpment-2/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
