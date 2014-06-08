@@ -9,8 +9,8 @@
   <meta name="author" content="MMClub">
 
   
-  <meta name="description" content="作者: 王涛 项目开发心得——合作篇 第一次做有规模的项目，跟之前的写些小东西相比，主要区别是：那人钱财，给人办事。但是既然是项目，我们就得以集体利益，也就是保质保量的完成东西为最终目标不是？ 与客户交流 需求明确 95%以上的需求要定
-改需求 = 做重复劳动 &ndash;> &hellip;">
+  <meta name="description" content="作者: 林翔宇 本文是去年做掌上南邮第一版服务器程序的时候写的部署笔记，原来放在简书上，时隔一年后，还收到一两个喜欢，看来还有那么一点点价值，于是就搬过来好了。 初始化服务器环境 yum -y install vim git screen python-pip
+curl -L https:// &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -76,6 +76,136 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/06/08/deploy-django-application-1/">部署Django Application（一）使用CentOS + Nginx + Gunicorn + Supervisord</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-08T10:58:53+08:00" pubdate data-updated="true">Jun 8<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>作者: 林翔宇</p>
+
+<p>本文是去年做<a href="https://github.com/mmclub/nupter-server-v1">掌上南邮第一版服务器程序</a>的时候写的部署笔记，原来放在<a href="http://jianshu.io/p/bNJWEs">简书</a>上，时隔一年后，还收到一两个喜欢，看来还有那么一点点价值，于是就搬过来好了。</p>
+
+<h2>初始化服务器环境</h2>
+
+<pre><code>yum -y install vim git screen python-pip
+curl -L https://github.com/robbyrussell/oh-my-    zsh/raw/master/tools/install.sh | sh
+pip install virtualenvwrapper gunicorn django
+mkdir /usr/local/virtualenv
+mkvirtualenv python
+</code></pre>
+
+<h2>配置gunicorn服务器</h2>
+
+<p>Gunicorn(gunicorn.org)是一个Python WSGI UNIX的HTTP服务器。，从Ruby的独角兽（Unicorn）项目移植。</p>
+
+<p>在Django项目下建立shell脚本</p>
+
+<pre><code>#!/bin/bash
+set -e 
+LOGFILE=guni.log
+LOGDIR=$(dirname $LOGFILE)
+NUM_WORKERS=3  # cpu core nums * 2 + 1
+USER=nobody
+GROUP=nogroup
+# WORKER=gevent # install python gevent
+ADDRESS=127.0.0.1:8000
+test -d $LOGDIR || mkdir -p $LOGDIR
+exec gunicorn_django -w $NUM_WORKERS --bind=$ADDRESS \
+ # -k $WORKER 
+  --daemon \
+  --user=$USER --group=$GROUP --log-level=error \
+  --log-file=$LOGFILE 2&gt;&gt;$LOGFILE
+</code></pre>
+
+<h2>安装Nginx用作反向代理与静态服务器</h2>
+
+<ul>
+<li>使用<a href="http://lnmp.org/">http://lnmp.org/</a> 安装Nginx</li>
+<li>用Lnmp一键安装包带的脚本新建一个虚拟主机</li>
+<li><p>更改主机的Nginx配置文件</p>
+
+<pre><code>  server {
+
+      listen       80;
+      server_name  nuptapi.nupter.org;
+      access_log   /home/wwwlogs/nuptapi.nupter.org.log;
+      error_log    /home/wwwlogs/nuptapi.nupter.org.error.log;
+      root /home/wwwroot/nuptapi.nupter.org;
+
+      location  /static/ {
+          alias /home/wwwroot/nuptapi.nupter.org/static/;
+      }
+
+      location  / {
+          proxy_pass            http://127.0.0.1:8000;
+          proxy_redirect        off;
+          proxy_set_header      Host             $host;
+          proxy_set_header      X-Real-IP        $remote_addr;
+          proxy_set_header      X-Forwarded-For  $proxy_add_x_forwarded_for;
+          client_max_body_size  10m;
+      }
+
+  }
+</code></pre></li>
+</ul>
+
+
+<h2>用Supervisord守护进程</h2>
+
+<ul>
+<li>echo_supervisord_conf > /etc/supervisord.conf</li>
+<li>vim /etc/supervisord.conf</li>
+</ul>
+
+
+<p>更改配置文件以下的内容</p>
+
+<ul>
+<li>chown=lxy:lxy       ; socket file uid:gid owner</li>
+<li><p>[program:nuptapi]
+  command=/home/wwwroot/django_helloworld/gunicorn_start.sh</p></li>
+<li><p>Shell运行supervisord</p></li>
+<li>同时supervisord 默认会在9001端口打开一个HTTP服务器，可以在Nginx再配置一个反向代理来远程登陆</li>
+</ul>
+
+
+<h2>其它</h2>
+
+<ul>
+<li>配置DNS服务器，解析域名A记录到服务器IP</li>
+<li>重启Nginx</li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1753,74 +1883,6 @@ end
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/03/02/design-in-canteen/">设计之食堂有感</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-03-02T21:53:49+08:00" pubdate data-updated="true">Mar 2<span>nd</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>作者： 王涛</p>
-
-<p>今天看了知乎上有一个回答<a href="www.zhihu.com/question/22153036">设计成就的关键是“勤奋”还是“天赋”</a>。</p>
-
-<p>里面讲到，看到广告牌就能意识到其设计的好坏，这叫天生。</p>
-
-<p>我不置可否。</p>
-
-<blockquote><p>“设计就是沟通”。</p></blockquote>
-
-<p>后来去食堂吃饭，点了一碗面条，发现没带手机，所以不能用手机里的电子书来利用这个碎片时间。然后我突然想起，刚刚那个的“广告牌”，于是我把注意力放在了食堂一排窗口的广告牌上，上边是统一的，也就是每家都一样，只是名称不同，然后下面都是百事可乐的广告牌，重复而已。</p>
-
-<p>我把注意力放在了百事广告牌上，白色字体，灰色暗部，蓝色背景，从左下角呈喇叭放大的趋势，有种被喊出来的感觉。</p>
-
-<p>接着，四个形象代言人的站位，面向镜头的姿势、表情、动作、发型和服饰，每一个要素想表达的信息无非是，party，欢乐，high。
-每一个要素都是可以考究的。
-瞬间就觉得自己的视野开阔了许多。</p>
-
-<blockquote><p>设计即生活</p></blockquote>
-
-<p>过了一会，我的面好了，我端方形铁盘，上面放着乘着面的瓷碗，店家考虑到瓷碗太大且烫手，所以用铁盘托之，有点贴心。再来，每天都在用的筷子，勺子，碗，这些我们早已习惯的日常用品，都是经过无数次”设计”过的吧？筷子的形状、长短、材质和手感，勺子的深浅、形状，碗的制作工艺，花纹等等这些随便一个方面都是蕴含无数的”设计“。甚至，面条的发明，菜丝的切法，汤料的制作，这些看似习以为常的”本该如此“或者”本该是厨师的事“其实处处都是设计。</p>
-
-<blockquote><p>“设计就是改善”。</p></blockquote>
-
-<p>吃完，拿出面纸，恩，这面纸的大小、手感和实用性，制作对环境的影响，太多太多了，设计师思维已经打开，收也收不住。世界经济和工业在高速发展，但高速的背后还有很多不合理，不人性，不舒适，不高效，不好用，不美观，不爽的地方，需要用心，细心，有耐心，有爱心的设计师来改善。</p>
-
-<p>吃过饭，我还沉浸在思索当中，餐桌的宽度、桌面的材质，板凳的设计，桌椅的排布，收残车的宽度。。。。好吧，太多了。</p>
-
-<p>出了食堂，看到门口的海报墙，一眼望去，秒秒钟把所有海报的设计水平分的清清楚楚，显然新东方和腾讯的广告海报做的相对精致，PS图层数量应该是其他劣质广告的数倍，甚至数十倍。成本和质量在一定范围内成正比。</p>
-
-<blockquote><p>“天赋决定上限，努力决定下限”，所以，以我们现在的用心和努力程度，根本轮不上比天赋。</p></blockquote>
-
-<p>什么样的心态，就有什么样的环境，不要埋怨现在的环境，努力让自己变强，才能在更好的环境成长，不然去了也是白去。</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -1836,6 +1898,10 @@ end
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/06/08/deploy-django-application-1/">部署Django Application（一）使用CentOS + Nginx + Gunicorn + Supervisord</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/06/01/think-of-a-outsourcing-app-develpment-2/">关于某App外包开发心得－Android篇（二）</a>
       </li>
     
@@ -1849,10 +1915,6 @@ end
     
       <li class="post">
         <a href="/blog/2014/04/03/start-learning-android/">Android入门杂谈</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/30/think-of-sohu-competition/">参加搜狐比赛有感</a>
       </li>
     
   </ul>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Web | 南京邮电大学移动互联网俱乐部]]></title>
   <link href="http://mmclub.github.io/blog/categories/web/atom.xml" rel="self"/>
   <link href="http://mmclub.github.io/"/>
-  <updated>2014-06-01T21:02:12+08:00</updated>
+  <updated>2014-06-08T11:03:12+08:00</updated>
   <id>http://mmclub.github.io/</id>
   <author>
     <name><![CDATA[MMClub]]></name>
@@ -12,6 +12,109 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[部署Django Application（一）使用CentOS + Nginx + Gunicorn + Supervisord]]></title>
+    <link href="http://mmclub.github.io/blog/2014/06/08/deploy-django-application-1/"/>
+    <updated>2014-06-08T10:58:53+08:00</updated>
+    <id>http://mmclub.github.io/blog/2014/06/08/deploy-django-application-1</id>
+    <content type="html"><![CDATA[<p>作者: 林翔宇</p>
+
+<p>本文是去年做<a href="https://github.com/mmclub/nupter-server-v1">掌上南邮第一版服务器程序</a>的时候写的部署笔记，原来放在<a href="http://jianshu.io/p/bNJWEs">简书</a>上，时隔一年后，还收到一两个喜欢，看来还有那么一点点价值，于是就搬过来好了。</p>
+
+<h2>初始化服务器环境</h2>
+
+<pre><code>yum -y install vim git screen python-pip
+curl -L https://github.com/robbyrussell/oh-my-    zsh/raw/master/tools/install.sh | sh
+pip install virtualenvwrapper gunicorn django
+mkdir /usr/local/virtualenv
+mkvirtualenv python
+</code></pre>
+
+<h2>配置gunicorn服务器</h2>
+
+<p>Gunicorn(gunicorn.org)是一个Python WSGI UNIX的HTTP服务器。，从Ruby的独角兽（Unicorn）项目移植。</p>
+
+<p>在Django项目下建立shell脚本</p>
+
+<pre><code>#!/bin/bash
+set -e 
+LOGFILE=guni.log
+LOGDIR=$(dirname $LOGFILE)
+NUM_WORKERS=3  # cpu core nums * 2 + 1
+USER=nobody
+GROUP=nogroup
+# WORKER=gevent # install python gevent
+ADDRESS=127.0.0.1:8000
+test -d $LOGDIR || mkdir -p $LOGDIR
+exec gunicorn_django -w $NUM_WORKERS --bind=$ADDRESS \
+ # -k $WORKER 
+  --daemon \
+  --user=$USER --group=$GROUP --log-level=error \
+  --log-file=$LOGFILE 2&gt;&gt;$LOGFILE
+</code></pre>
+
+<h2>安装Nginx用作反向代理与静态服务器</h2>
+
+<ul>
+<li>使用<a href="http://lnmp.org/">http://lnmp.org/</a> 安装Nginx</li>
+<li>用Lnmp一键安装包带的脚本新建一个虚拟主机</li>
+<li><p>更改主机的Nginx配置文件</p>
+
+<pre><code>  server {
+
+      listen       80;
+      server_name  nuptapi.nupter.org;
+      access_log   /home/wwwlogs/nuptapi.nupter.org.log;
+      error_log    /home/wwwlogs/nuptapi.nupter.org.error.log;
+      root /home/wwwroot/nuptapi.nupter.org;
+
+      location  /static/ {
+          alias /home/wwwroot/nuptapi.nupter.org/static/;
+      }
+
+      location  / {
+          proxy_pass            http://127.0.0.1:8000;
+          proxy_redirect        off;
+          proxy_set_header      Host             $host;
+          proxy_set_header      X-Real-IP        $remote_addr;
+          proxy_set_header      X-Forwarded-For  $proxy_add_x_forwarded_for;
+          client_max_body_size  10m;
+      }
+
+  }
+</code></pre></li>
+</ul>
+
+
+<h2>用Supervisord守护进程</h2>
+
+<ul>
+<li>echo_supervisord_conf > /etc/supervisord.conf</li>
+<li>vim /etc/supervisord.conf</li>
+</ul>
+
+
+<p>更改配置文件以下的内容</p>
+
+<ul>
+<li>chown=lxy:lxy       ; socket file uid:gid owner</li>
+<li><p>[program:nuptapi]
+  command=/home/wwwroot/django_helloworld/gunicorn_start.sh</p></li>
+<li><p>Shell运行supervisord</p></li>
+<li>同时supervisord 默认会在9001端口打开一个HTTP服务器，可以在Nginx再配置一个反向代理来远程登陆</li>
+</ul>
+
+
+<h2>其它</h2>
+
+<ul>
+<li>配置DNS服务器，解析域名A记录到服务器IP</li>
+<li>重启Nginx</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Puma: 一个为并发构建的Ruby服务器]]></title>
