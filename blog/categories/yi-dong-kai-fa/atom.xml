@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: 移动开发 | 南京邮电大学移动互联网俱乐部]]></title>
+  <link href="http://mmclub.github.io/blog/categories/yi-dong-kai-fa/atom.xml" rel="self"/>
+  <link href="http://mmclub.github.io/"/>
+  <updated>2014-06-15T13:21:16+08:00</updated>
+  <id>http://mmclub.github.io/</id>
+  <author>
+    <name><![CDATA[MMClub]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[移动端BaaS服务比较]]></title>
+    <link href="http://mmclub.github.io/blog/2014/06/15/mobile-baas/"/>
+    <updated>2014-06-15T13:05:01+08:00</updated>
+    <id>http://mmclub.github.io/blog/2014/06/15/mobile-baas</id>
+    <content type="html"><![CDATA[<p>作者：林翔宇</p>
+
+<p>Backend-as-a-Service (BaaS) 服务可以有效减少移动端后台开发的工作量，大大减少数据存储、分析统计、推送服务开发的工作量。本文简单介绍几个BaaS服务，并且会持续更新。</p>
+
+<h2>Parse</h2>
+
+<p>Parse 是 YC走出的创业公司，之前被Facebook 5000万美元收购，应该是目前用户最多最流行的BaaS服务，提供的SDK也十分丰富，从Windows8到OS X， Android，iOS，Unity的SDK应有尽有。而且在Facebook下面稳定性也得到很大保证，不用担心过段时间突然停止服务。。</p>
+
+<p>缺点是对国内服务存在速度与稳定性的问题，不过目前一直看着都还好。甚至推送服务比一些国内的都还及时。。。</p>
+
+<p>刚出的价格方案，比原来降低了很多。</p>
+
+<h2>AVOSCloud</h2>
+
+<p>AVOS是陈士俊投资的公司，AVOSCloud是AVOS中国的研发中心的一个作品，不过目前貌似AVOS中国专心做AVOSCloud了。。</p>
+
+<p>AVOSCloud刚出来要需要申请测试的时候我就在用了，当时还是对Parse的模仿，文档页面都模仿Parse的样式，类名前缀都用Parse的。。。理由是方便Parse用户切换。。确实，只要改下导入的包／头文件就可以了。。。文件存储用的是七牛云。。。</p>
+
+<p>但是目前AVOSCloud不仅仅是对Parse的模仿了，产品迭代的很快，新功能持续上线，Dashboard体验也很好，值得尝试。</p>
+
+<p>(未完待续)</p>
+]]></content>
+  </entry>
+  
+</feed>

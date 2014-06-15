@@ -5,12 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>部署Django Application（一）使用CentOS + Nginx + Gunicorn + Supervisord - 南京邮电大学移动互联网俱乐部</title>
+  <title>移动端BaaS服务比较 - 南京邮电大学移动互联网俱乐部</title>
   <meta name="author" content="MMClub">
 
   
-  <meta name="description" content="作者: 林翔宇 本文是去年做掌上南邮第一版服务器程序的时候写的部署笔记，原来放在简书上，时隔一年后，还收到一两个喜欢，看来还有那么一点点价值，于是就搬过来好了。 初始化服务器环境 yum -y install vim git screen python-pip
-curl -L https:// &hellip;">
+  <meta name="description" content="作者：林翔宇 Backend-as-a-Service (BaaS) 服务可以有效减少移动端后台开发的工作量，大大减少数据存储、分析统计、推送服务开发的工作量。本文简单介绍几个BaaS服务，并且会持续更新。 Parse Parse 是 YC走出的创业公司，之前被Facebook 5000万美元收购 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +18,7 @@ curl -L https:// &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://mmclub.github.io/blog/2014/06/08/deploy-django-application-1">
+  <link rel="canonical" href="http://mmclub.github.io/blog/2014/06/15/mobile-baas">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="南京邮电大学移动互联网俱乐部" type="application/atom+xml">
@@ -79,7 +78,7 @@ curl -L https:// &hellip;">
   
   <header>
     
-      <h1 class="entry-title">部署Django Application（一）使用CentOS + Nginx + Gunicorn + Supervisord</h1>
+      <h1 class="entry-title">移动端BaaS服务比较</h1>
     
     
       <p class="meta">
@@ -95,108 +94,34 @@ curl -L https:// &hellip;">
   
 
 
-<time datetime="2014-06-08T10:58:53+08:00" pubdate data-updated="true">Jun 8<span>th</span>, 2014</time>
+<time datetime="2014-06-15T13:05:01+08:00" pubdate data-updated="true">Jun 15<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>作者: 林翔宇</p>
+<div class="entry-content"><p>作者：林翔宇</p>
 
-<p>本文是去年做<a href="https://github.com/mmclub/nupter-server-v1">掌上南邮第一版服务器程序</a>的时候写的部署笔记，原来放在<a href="http://jianshu.io/p/bNJWEs">简书</a>上，时隔一年后，还收到一两个喜欢，看来还有那么一点点价值，于是就搬过来好了。</p>
+<p>Backend-as-a-Service (BaaS) 服务可以有效减少移动端后台开发的工作量，大大减少数据存储、分析统计、推送服务开发的工作量。本文简单介绍几个BaaS服务，并且会持续更新。</p>
 
-<h2>初始化服务器环境</h2>
+<h2>Parse</h2>
 
-<pre><code>yum -y install vim git screen python-pip
-curl -L https://github.com/robbyrussell/oh-my-    zsh/raw/master/tools/install.sh | sh
-pip install virtualenvwrapper gunicorn django
-mkdir /usr/local/virtualenv
-mkvirtualenv python
-</code></pre>
+<p>Parse 是 YC走出的创业公司，之前被Facebook 5000万美元收购，应该是目前用户最多最流行的BaaS服务，提供的SDK也十分丰富，从Windows8到OS X， Android，iOS，Unity的SDK应有尽有。而且在Facebook下面稳定性也得到很大保证，不用担心过段时间突然停止服务。。</p>
 
-<h2>配置gunicorn服务器</h2>
+<p>缺点是对国内服务存在速度与稳定性的问题，不过目前一直看着都还好。甚至推送服务比一些国内的都还及时。。。</p>
 
-<p>Gunicorn(gunicorn.org)是一个Python WSGI UNIX的HTTP服务器。，从Ruby的独角兽（Unicorn）项目移植。</p>
+<p>刚出的价格方案，比原来降低了很多。</p>
 
-<p>在Django项目下建立shell脚本</p>
+<h2>AVOSCloud</h2>
 
-<pre><code>#!/bin/bash
-set -e 
-LOGFILE=guni.log
-LOGDIR=$(dirname $LOGFILE)
-NUM_WORKERS=3  # cpu core nums * 2 + 1
-USER=nobody
-GROUP=nogroup
-# WORKER=gevent # install python gevent
-ADDRESS=127.0.0.1:8000
-test -d $LOGDIR || mkdir -p $LOGDIR
-exec gunicorn_django -w $NUM_WORKERS --bind=$ADDRESS \
- # -k $WORKER 
-  --daemon \
-  --user=$USER --group=$GROUP --log-level=error \
-  --log-file=$LOGFILE 2&gt;&gt;$LOGFILE
-</code></pre>
+<p>AVOS是陈士俊投资的公司，AVOSCloud是AVOS中国的研发中心的一个作品，不过目前貌似AVOS中国专心做AVOSCloud了。。</p>
 
-<h2>安装Nginx用作反向代理与静态服务器</h2>
+<p>AVOSCloud刚出来要需要申请测试的时候我就在用了，当时还是对Parse的模仿，文档页面都模仿Parse的样式，类名前缀都用Parse的。。。理由是方便Parse用户切换。。确实，只要改下导入的包／头文件就可以了。。。文件存储用的是七牛云。。。</p>
 
-<ul>
-<li>使用<a href="http://lnmp.org/">http://lnmp.org/</a> 安装Nginx</li>
-<li>用Lnmp一键安装包带的脚本新建一个虚拟主机</li>
-<li><p>更改主机的Nginx配置文件</p>
+<p>但是目前AVOSCloud不仅仅是对Parse的模仿了，产品迭代的很快，新功能持续上线，Dashboard体验也很好，值得尝试。</p>
 
-<pre><code>  server {
-
-      listen       80;
-      server_name  nuptapi.nupter.org;
-      access_log   /home/wwwlogs/nuptapi.nupter.org.log;
-      error_log    /home/wwwlogs/nuptapi.nupter.org.error.log;
-      root /home/wwwroot/nuptapi.nupter.org;
-
-      location  /static/ {
-          alias /home/wwwroot/nuptapi.nupter.org/static/;
-      }
-
-      location  / {
-          proxy_pass            http://127.0.0.1:8000;
-          proxy_redirect        off;
-          proxy_set_header      Host             $host;
-          proxy_set_header      X-Real-IP        $remote_addr;
-          proxy_set_header      X-Forwarded-For  $proxy_add_x_forwarded_for;
-          client_max_body_size  10m;
-      }
-
-  }
-</code></pre></li>
-</ul>
-
-
-<h2>用Supervisord守护进程</h2>
-
-<ul>
-<li>echo_supervisord_conf > /etc/supervisord.conf</li>
-<li>vim /etc/supervisord.conf</li>
-</ul>
-
-
-<p>更改配置文件以下的内容</p>
-
-<ul>
-<li>chown=lxy:lxy       ; socket file uid:gid owner</li>
-<li><p>[program:nuptapi]
-  command=/home/wwwroot/django_helloworld/gunicorn_start.sh</p></li>
-<li><p>Shell运行supervisord</p></li>
-<li>同时supervisord 默认会在9001端口打开一个HTTP服务器，可以在Nginx再配置一个反向代理来远程登陆</li>
-</ul>
-
-
-<h2>其它</h2>
-
-<ul>
-<li>配置DNS服务器，解析域名A记录到服务器IP</li>
-<li>重启Nginx</li>
-</ul>
-
+<p>(未完待续)</p>
 </div>
 
 
@@ -219,12 +144,12 @@ exec gunicorn_django -w $NUM_WORKERS --bind=$ADDRESS \
   
 
 
-<time datetime="2014-06-08T10:58:53+08:00" pubdate data-updated="true">Jun 8<span>th</span>, 2014</time>
+<time datetime="2014-06-15T13:05:01+08:00" pubdate data-updated="true">Jun 15<span>th</span>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/django/'>Django</a>, <a class='category' href='/blog/categories/python/'>Python</a>, <a class='category' href='/blog/categories/vps/'>VPS</a>, <a class='category' href='/blog/categories/web/'>Web</a>, <a class='category' href='/blog/categories/lin-xiang-yu/'>林翔宇</a>
+    <a class='category' href='/blog/categories/lin-xiang-yu/'>林翔宇</a>, <a class='category' href='/blog/categories/yi-dong-kai-fa/'>移动开发</a>
   
 </span>
 
@@ -233,7 +158,7 @@ exec gunicorn_django -w $NUM_WORKERS --bind=$ADDRESS \
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://mmclub.github.io/blog/2014/06/08/deploy-django-application-1/" data-via="" data-counturl="http://mmclub.github.io/blog/2014/06/08/deploy-django-application-1/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://mmclub.github.io/blog/2014/06/15/mobile-baas/" data-via="" data-counturl="http://mmclub.github.io/blog/2014/06/15/mobile-baas/" >Tweet</a>
   
   
   
@@ -242,10 +167,8 @@ exec gunicorn_django -w $NUM_WORKERS --bind=$ADDRESS \
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/06/01/think-of-a-outsourcing-app-develpment-2/" title="Previous Post: 关于某App外包开发心得－Android篇（二）">&laquo; 关于某App外包开发心得－Android篇（二）</a>
+        <a class="basic-alignment left" href="/blog/2014/06/08/deploy-django-application-1/" title="Previous Post: 部署Django Application（一）使用CentOS + Nginx + gunicorn + supervisord">&laquo; 部署Django Application（一）使用CentOS + Nginx + gunicorn + supervisord</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/06/15/mobile-baas/" title="Next Post: 移动端BaaS服务比较">移动端BaaS服务比较 &raquo;</a>
       
     </p>
   </footer>
@@ -340,8 +263,8 @@ exec gunicorn_django -w $NUM_WORKERS --bind=$ADDRESS \
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://mmclub.github.io/blog/2014/06/08/deploy-django-application-1/';
-        var disqus_url = 'http://mmclub.github.io/blog/2014/06/08/deploy-django-application-1/';
+        var disqus_identifier = 'http://mmclub.github.io/blog/2014/06/15/mobile-baas/';
+        var disqus_url = 'http://mmclub.github.io/blog/2014/06/15/mobile-baas/';
         var disqus_script = 'embed.js';
       
     (function () {
